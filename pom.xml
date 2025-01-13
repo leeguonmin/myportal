@@ -9,7 +9,7 @@
   	<!-- 3. Properties 생성 (버전을 잘 관리하기 위해) -->
     <!-- Properties -->
   <properties>
-  	<org.springframework-version>6.1.16</org.springframework-version>
+  	<org.springframework-version>6.1.12</org.springframework-version>
   </properties>
   
   
@@ -66,14 +66,7 @@
   	
   </dependencies>
   
-  
-  
-  
-  
-  
-  
-  </dependencies>
-  
+ 
   
   
 </project>
