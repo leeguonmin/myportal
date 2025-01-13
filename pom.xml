@@ -6,6 +6,13 @@
   <packaging>war</packaging>
   
   
+  	<!-- 3. Properties 생성 (버전을 잘 관리하기 위해) -->
+    <!-- Properties -->
+  <properties>
+  	<org.springframework-version>6.1.16</org.springframework-version>
+  </properties>
+  
+  
   <build>
     <plugins>
       <plugin>
@@ -21,4 +28,52 @@
       </plugin>
     </plugins>
   </build>
+  
+  
+  
+  <!-- 의존성 목록 -->
+  <dependencies>			<!-- 1. 의존성 목록에 추가할게 한두개가 아니니까 dependencies 으로 그룹-->
+  
+  
+  	<!-- 2. 추가1 (링크치면 나와) -->
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context</artifactId>
+    	<!--<version>6.1.16</version>-->								<!-- 5. 이거 지우고 -->
+    	<version>${org.springframework-version}</version>				<!-- 6. Properties 를 ${} 해서 넣어. 그러면 Properties에서만 숫자 수정해도 모든 버전이 바뀌겠지 -->
+	</dependency>
+	
+	<!-- 2. 추가2 -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+	<dependency>
+   	 	<groupId>org.springframework</groupId>
+   	 	<artifactId>spring-web</artifactId>
+    	<!--<version>6.1.16</version>-->
+    	<version>${org.springframework-version}</version>
+	</dependency>
+	
+	<!-- 2. 추가3 -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+   		<!-- <version>6.1.16</version>-->
+   		<version>${org.springframework-version}</version>
+	</dependency>
+
+
+  	
+  </dependencies>
+  
+  
+  
+  
+  
+  
+  
+  </dependencies>
+  
+  
+  
 </project>
