@@ -23,7 +23,29 @@
 		<!-- 특정 필터를 제외하고 등록할 경우 -->
 		<!-- context:exclude-filter type="regex" expression=".*" /-->
 	</context:component-scan>
+	
+	<!-- 이거 지금, css를 못 가져와서, css가 적용이 안되가지고 되게끔 만들려고 하는건가봐유 -->
+	<!-- 어노테이션 기반 Spring MVC 설정을 활성화한다 -->
+	<mvc:annotation-driven />
+	<!-- 정적 자원 처리를 위한 디폴트 서블릿 핸들러 위임 -->
+	<mvc:default-servlet-handler />
+	
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- 
 <?xml version="1.0" encoding="UTF-8"?>

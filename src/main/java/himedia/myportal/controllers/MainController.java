@@ -7,9 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 	@RequestMapping({"/", "/main"})
-	public ModelAndView main() {
+	public String main() {
+		return "/WEB-INF/views/home.jsp";
+	/*public ModelAndView main() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/WEB-INF/views/home.jsp");
-		return mav;
+		return mav;*/
 	}
 }
