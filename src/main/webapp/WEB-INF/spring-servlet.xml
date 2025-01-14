@@ -30,6 +30,16 @@
 	<!-- 정적 자원 처리를 위한 디폴트 서블릿 핸들러 위임 -->
 	<mvc:default-servlet-handler />
 	
+	<!-- ViewResolver -->
+	<bean id="viewResoLver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+	<property name="prefix" value="/WEB-INF/views/" />
+	<property name="suffix" value=".jsp" />
+	<property name="order" value="1" />
+	
+	</bean>
+	
+	
 </beans>
 
 
