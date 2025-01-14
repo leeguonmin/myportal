@@ -14,4 +14,28 @@
            http://www.springframework.org/schema/mvc/spring-mvc.xsd
            http://www.springframework.org/schema/aop 
            http://www.springframework.org/schema/aop/spring-aop.xsd">
-</beans>
+           
+	<context:annotation-config />
+	<!-- context:component-scan base-package="himedia.myportal"
+		use-default-filters="false" -->
+	<context:component-scan base-package="himedia.myportal">
+		<!-- context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Component" / -->
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+</beans>          
+           
+           
+<!--      <context:annotation-config />
+     <context:component-scan base-package="himedia.mypotal">
+     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+     </context:component-scan>
+</beans> -->
