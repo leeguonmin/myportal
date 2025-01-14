@@ -30,13 +30,35 @@
 	</context:component-scan>
 	
 	<!-- Date Source 등록 -->
-	<bean id="dateSource" class="org.apache.commons.dbcp2.BasicDataSource" >
-	
+<!-- 	<bean id="dateSource" class="org.apache.commons.dbcp2.BasicDataSource" >
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/mypotal" />
 		<property name="username" value="webdb" />
 		<property name="password" value="webdb" />
+	</bean> -->
 	
+	<!-- Data Source 등록 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/myportal" />
+		<property name="username" value="webdb" />
+		<property name="password" value="webdb" />			
+	</bean>
+	
+	
+	<!-- MyBatis SqlSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis/configuration.xml" />
+	</bean>
+	
+	<!-- MyBatis SqlSessionTemplate  -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	
 </beans>          
