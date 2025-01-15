@@ -27,8 +27,9 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean write(BoardVo boardVo) {
-		// TODO Auto-generated method stub
-		return false;
+		int insertedCount = boardDaoImpl.insert(boardVo);
+		return 1 == insertedCount;
+		
 	}
 
 	@Override
