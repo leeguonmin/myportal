@@ -45,7 +45,7 @@
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="6"><a href="<cLurl value="/board/write" />">글쓰기</a></td>
+			<td colspan="6"><a href="<c:url value="/board/write" />">글쓰기</a></td>
 		</tr>
 	</table>
 	

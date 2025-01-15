@@ -34,8 +34,7 @@
 		title, content, hit,
 		reg_date as regDate,
 		user_no as userNo
-	FROM doard
-	WHERE no=#{value}
+	FROM board
+	WHERE no = #{value}	
 	</select>
-	
 </mapper>
