@@ -8,6 +8,7 @@
 		<typeAlias alias = "boardVo" type="himedia.myportal.repositories.vo.BoardVo" />
 		<typeAlias alias="guestbookVo"
 			type="himedia.myportal.repositories.vo.GuestbookVo" />
+		<typeAlias alias="userVo" type="himedia.myportal.repositories.vo.UserVo" />
 	</typeAliases>
 	<!-- Mapper 등록 -->
 	<mappers>
