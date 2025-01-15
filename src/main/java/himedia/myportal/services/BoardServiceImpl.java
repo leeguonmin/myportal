@@ -2,8 +2,11 @@ package himedia.myportal.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import himedia.myportal.repositories.vo.BoardVo;
 
+@Service
 public class BoardServiceImpl implements BoardService {
 
 	@Override
