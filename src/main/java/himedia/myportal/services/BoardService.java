@@ -9,6 +9,6 @@ public interface BoardService {
 	public BoardVo getContent(Integer no);
 	public boolean write(BoardVo boardVo);
 	public boolean update(BoardVo boardVo);
-	public boolean deleteByNoAndUserNo(Integer no, Long userNo);
+	public boolean deleteByNoAndUserNo(Integer no, Integer userNo);
 
 }

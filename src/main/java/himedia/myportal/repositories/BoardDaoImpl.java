@@ -32,19 +32,20 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public BoardVo getContent(Long no) {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardVo getContent(Integer no) {
+		sqlSession.update("board.increaseHitCount", no);
+		BoardVo vo = sqlSession.selectOne("board.getContent", no);
+		return vo;
 	}
 
 	@Override
 	public int update(BoardVo boardVo) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	@Override
-	public int delete(Long no, Long userNo) {
+	public int delete(Integer no, Integer userNo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
