@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import himedia.myportal.repositories.vo.UserVo;
 import himedia.myportal.services.UserService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/users")
@@ -69,4 +70,16 @@ public class UsersController {
 			return "redirect:/users/login";
 		}
 	}
+	
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("authUser");
+		session.invalidate();
+		
+		return "redirect:/";
+	}
+	
+	
+	
 }
