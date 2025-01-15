@@ -4,7 +4,6 @@ import java.util.Date;
 
 // 마이sql 추가하고 Vo 생성 했음 
 
-
 public class UserVo {
 	private Integer no;
 	private String name;
@@ -12,6 +11,37 @@ public class UserVo {
 	private String password;
 	private String gender;
 	private Date joinDate;
+	
+	
+	public UserVo() {
+		super();
+	}
+	
+	
+
+	public UserVo(String name, String email, String password, String gender) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.gender = gender;
+	}
+
+
+
+	public UserVo(Integer no, String name, String email, String password, String gender, Date joinDate) {
+		super();
+		this.no = no;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.gender = gender;
+		this.joinDate = joinDate;
+	}
+
+
+
+
 	public Integer getNo() {
 		return no;
 	}
