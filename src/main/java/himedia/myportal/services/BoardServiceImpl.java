@@ -2,12 +2,16 @@ package himedia.myportal.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import himedia.myportal.repositories.BoardDao;
 import himedia.myportal.repositories.vo.BoardVo;
 
 @Service
 public class BoardServiceImpl implements BoardService {
+	@Autowired
+	BoardDao boardDaoImpl;
 
 	@Override
 	public List<BoardVo> getList() {
