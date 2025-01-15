@@ -1,13 +1,29 @@
 package himedia.myportal.repositories;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import himedia.myportal.exception.UserDaoException;
 import himedia.myportal.repositories.vo.UserVo;
 
+
+@Repository
 public class UserDaoImpl implements UserDao {
+	@Autowired
+	SqlSession sqlSession;
 
 	@Override
 	public int insert(UserVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int insertedCount = 0;
+		
+		try {
+			/* insertedCount = sqlSession.insert("user.insert", vo); */
+			return sqlSession.insert("user.insert", vo);
+		} catch (Exception e) {
+			throw new UserDaoException("회원가입 중 오류", vo);
+		}
+		
 	}
 
 	@Override
