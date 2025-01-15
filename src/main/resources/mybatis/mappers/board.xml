@@ -11,4 +11,14 @@
 			user_no as userNo
 		FROM board
 	</select>
+	
+	<insert id ="insert" parameterType="boardVo" >
+		INSERT INTO board
+			(title, content, user_no)
+		VALUES(
+			#{title},
+			#{content},
+			#{userNo}
+			)
+	</insert>
 </mapper>
