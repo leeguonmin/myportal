@@ -38,4 +38,9 @@ public class UsersController {
 			return "redirect:/users/joinsuccess";
 		}
 	}
+	
+	@GetMapping("/login")
+	public String loginForm() {
+		return "users/loginform";
+	}
 }
