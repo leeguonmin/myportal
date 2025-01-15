@@ -15,8 +15,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean join(UserVo vo) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return 1 == userDaoImpl.insert(vo);
+	
 	}
 
 	@Override
