@@ -16,8 +16,8 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List<BoardVo> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<BoardVo> list = sqlSession.selectList("board.selectAll");
+		return list;
 	}
 
 	@Override
