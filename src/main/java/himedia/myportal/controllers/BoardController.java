@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,6 +41,14 @@ public class BoardController {
 		boardServiceImpl.write(vo);
 		
 		return "redirect:/board";
+	}
+	
+	// 게시물 조회 
+	@GetMapping("/{no}")
+	public String view(@PathVariable("no") Integer no, Model model) {
+		BoardVo vo = boardServiceImpl.getContent(no);
+		model.addAttribute("vo", vo);
+		return "board/view";
 	}
 
 }
