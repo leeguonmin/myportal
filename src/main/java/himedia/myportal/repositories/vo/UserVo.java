@@ -13,6 +13,7 @@ public class UserVo {
 	private Date joinDate;
 	
 	
+	// 생성자
 	public UserVo() {
 		super();
 	}
@@ -41,7 +42,7 @@ public class UserVo {
 
 
 
-
+	// 겟셋 
 	public Integer getNo() {
 		return no;
 	}
@@ -78,6 +79,16 @@ public class UserVo {
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
+
+
+	//투스트링
+	@Override
+	public String toString() {
+		return "UserVo [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password + ", gender="
+				+ gender + ", joinDate=" + joinDate + "]";
+	}
+	
+	
 	
 	
 
