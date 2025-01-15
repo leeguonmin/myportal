@@ -15,6 +15,8 @@ import himedia.myportal.services.BoardService;
 public class BoardController {
 	@Autowired
 	private BoardService boardServiceImpl;
+	
+	
 	// 하위 처리
 	@RequestMapping({"", "/", "/list"})
 	public String list(Model model) {
@@ -23,5 +25,8 @@ public class BoardController {
 		
 		return "board/list";
 	}
+	
+	
+	
 
 }

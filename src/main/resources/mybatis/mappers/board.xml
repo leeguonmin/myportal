@@ -7,7 +7,7 @@
 			title,
 			content,
 			hit,
-			reg_date as regDate
+			reg_date as regDate,
 			user_no as userNo
 		FROM board
 	</select>
