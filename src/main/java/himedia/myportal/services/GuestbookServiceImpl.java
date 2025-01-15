@@ -9,7 +9,8 @@ import himedia.myportal.repositories.GuestbookDao;
 import himedia.myportal.repositories.vo.GuestbookVo;
 
 @Service
-public class GuestbookServicesImpl implements GuestbookServices {
+public class GuestbookServiceImpl 
+	implements GuestbookService {
 	@Autowired
 	GuestbookDao guestbookDaoImpl;
 	
@@ -20,16 +21,24 @@ public class GuestbookServicesImpl implements GuestbookServices {
 		return list;
 	}
 
+	
+	
 	@Override
 	public boolean writeMessage(GuestbookVo vo) {
-		// TODO Auto-generated method stub
-		return false;
+		int insertedCount = guestbookDaoImpl.insert(vo);
+		
+		
+		return 1 == insertedCount;
+		// insertedCount가 1이면 정상적으로 리턴
 	}
 
+	
+	
 	@Override
 	public boolean deleteMessage(GuestbookVo vo) {
-		// TODO Auto-generated method stub
-		return false;
+		int deletedCount = guestbookDaoImpl.delete(vo);
+		
+		return 1 == deletedCount;
 	}
 	
 }
