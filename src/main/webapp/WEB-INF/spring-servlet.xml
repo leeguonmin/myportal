@@ -26,7 +26,22 @@
 	
 	<!-- 이거 지금, css를 못 가져와서, css가 적용이 안되가지고 되게끔 만들려고 하는건가봐유 -->
 	<!-- 어노테이션 기반 Spring MVC 설정을 활성화한다 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<!-- MessageConverter 등록 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<!-- Map 타입을 JSON으로 변환해주는 Converter -->
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	
+	
 	<!-- 정적 자원 처리를 위한 디폴트 서블릿 핸들러 위임 -->
 	<mvc:default-servlet-handler />
 	
