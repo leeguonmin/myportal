@@ -10,6 +10,8 @@
     <!-- Properties -->
   <properties>
   	<org.springframework-version>6.1.16</org.springframework-version>
+  	<jcloverslf4j.version>2.0.16</jcloverslf4j.version>
+  	<logback.version>1.5.16</logback.version>
   </properties>
   
   
@@ -42,6 +44,13 @@
     	<artifactId>spring-context</artifactId>
     	<!--<version>6.1.16</version>-->								<!-- 5. 이거 지우고 -->
     	<version>${org.springframework-version}</version>				<!-- 6. Properties 를 ${} 해서 넣어. 그러면 Properties에서만 숫자 수정해도 모든 버전이 바뀌겠지 -->
+    	<!-- 로거 교체를 위해서 기본 로거를 배체 -->
+    	<exclusions>
+    		<exclusion>
+    			<groupId>commons-logging</groupId>
+    			<artifactId>commons-logging</artifactId>
+    		</exclusion>
+    	</exclusions>
 	</dependency>
 	
 	<!-- 2. 추가2 -->
@@ -144,6 +153,23 @@
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
     <version>2.18.2</version>
+</dependency>
+
+<!-- JCL-over-SLF4J-->
+<!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+    <version>${jcloverslf4j.version}</version>
+</dependency>
+
+<!-- Logback -->
+<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>${logback.version}</version>
+    <!--<scope>test</scope>-->
 </dependency>
 
 
