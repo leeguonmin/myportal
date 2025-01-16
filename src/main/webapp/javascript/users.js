@@ -10,5 +10,5 @@ function checkEmail(event) {
 }
 
 window.addEventListener("load", (event) => {
-	document.getElementById("checkEmail").addEventListener("click", checkEmail);
+	document.getElementById("check-email").addEventListener("click", checkEmail);
 })
