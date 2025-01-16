@@ -10,7 +10,7 @@
 </head>
 <body>
 	<form method="post" action="<c:url value="/board/modify" />">
-	<input type="hidden" value="${vo.no }" />
+	<input type="hidden" name="no" value="${vo.no }" />
 		<table border="1" width="640">
 			<tr>
 				<td colspan="2"><h3>게시판</h3></td>
