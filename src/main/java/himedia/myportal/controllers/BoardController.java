@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import himedia.myportal.repositories.vo.BoardVo;
+import himedia.myportal.repositories.vo.UserVo;
 import himedia.myportal.services.BoardService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/board")
@@ -32,12 +34,26 @@ public class BoardController {
 	
 	
 	@GetMapping("/write")
-	public String writeForm() {
+	public String writeForm(HttpSession session) {
+		// 로그인하지 않은 사용자는 홈페이지로 돌려보내, 리다이렉트 할거임
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		if (authUser == null) {
+			System.err.println("로그인 사용자 아님요");
+			return "redirect:/";
+		}
+		
 		return "board/write";
 	}
 	
 	@PostMapping("/write")
-	public String writeAction(@ModelAttribute BoardVo vo) {
+	public String writeAction(@ModelAttribute BoardVo vo, HttpSession session) {
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		if(authUser == null) {
+			System.err.println("로그인 상요자 아님");
+			return "redirect:/";
+		}
+		
+		vo.setUserNo(authUser.getNo());
 		boardServiceImpl.write(vo);
 		
 		return "redirect:/board";
