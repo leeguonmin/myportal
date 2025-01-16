@@ -11,6 +11,9 @@
 <link type="text/css" 
 	rel="stylesheet" 
 	href="<%= request.getContextPath() %>/css/users.css"/>
+	
+<script src="<c:url value="/javascript/users.js" />"></script>
+
 </head>
 <body>
   <div id="container">
@@ -44,7 +47,8 @@
 		<input type="text" name="email" placeholder="이메일을 입력하십시오."><br>
 		
 		<input id="check-email" type="button" data-target="<c:url value="/users/cheackEmail"/>" value="id 중복 체크">
-	
+		<br />
+		
 		<label for="gender">성별</label>
 		<input type="radio" name="gender" value="M" checked>남성</radio>
 		<input type="radio" name="gender" value="F">여성</radio><br>
