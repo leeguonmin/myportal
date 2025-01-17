@@ -87,22 +87,22 @@
 	
 		
 		
-		<!-- 로그아웃 인터셉터 추가 -->
+		<!-- 로그아웃 인터셉터 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/users/logout" />
 			<bean class="himedia.myportal.interceptors.LogoutInterceptor" />
 		</mvc:interceptor>
-		
 	</mvc:interceptors>
 	
 	
 	
+		
 	<!-- MultipartResolver -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
-	
-	
-	<!-- Resource MApping -->
-	<mvc:resources location="/file:c:/uploads" mapping="/uploda-image/**" />
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+		
+	<!-- Resource Mapping -->
+	<mvc:resources mapping="/upload-images/**" location="file:c:/uploads/" />
 
 	
 	
