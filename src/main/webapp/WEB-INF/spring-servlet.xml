@@ -58,6 +58,7 @@
 	
 	<!-- Interceptors -->
 	<mvc:interceptors>
+	
 		<!-- <mvc:interceptor>
 			<mvc:mapping path="/board/**" />
 			<bean class="himedia.myportal.interceptors.MyInterceptor" />
@@ -69,10 +70,13 @@
 			<bean class="himedia.myportal.interceptors.MyInterceptor2" />
 		</mvc:interceptor> -->
 		
+		
+		
 		<mvc:interceptor>
 			<!-- Board 서비스에는 기본적으로 로그인이 필요하다 (로그인이 안되어있으면 막아) -->
 			<!-- Board/list는 모든 사용자가 열람할 수 있도록 -->
 			<mvc:mapping path="/board/**" />
+			
 			<!-- 특정 메핑에서 제외하고자 할때 (보드컨트롤러에 있는 {"", "/", "/list"} 를 제외 시키려고 하는거임 = 'Board/list는 모든 사용자가 열람할 수 있도록')-->
 			<mvc:exclude-mapping path="/board/" />
 			<mvc:exclude-mapping path="/board"/>
@@ -80,6 +84,8 @@
 			
 			<bean class="himedia.myportal.interceptors.AuthInterceptor" />
 		</mvc:interceptor>
+	
+		
 		
 		<!-- 로그아웃 인터셉터 추가 -->
 		<mvc:interceptor>
@@ -88,6 +94,12 @@
 		</mvc:interceptor>
 		
 	</mvc:interceptors>
+	
+	
+	
+	<!-- MultipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+	
 	
 
 	

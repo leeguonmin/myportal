@@ -22,7 +22,6 @@ public class LogoutInterceptor implements HandlerInterceptor {
 		// 무효화 시켰으니까, 홈페이지 쪽으로 돌려줘(리다이렉트)
 		response.sendRedirect(request.getContextPath());
 		
-		
 		return false;
 		// false면 뒤로 넘어가지 않지!
 	}
