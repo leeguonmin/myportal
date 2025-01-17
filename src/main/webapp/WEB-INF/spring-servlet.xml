@@ -101,6 +101,8 @@
 	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 	
 	
+	<!-- Resource MApping -->
+	<mvc:resources location="/file:c:/uploads" mapping="/uploda-image/**" />
 
 	
 	
