@@ -79,6 +79,7 @@ public class UsersController {
 	}
 	
 	
+	/*
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("authUser");
@@ -86,7 +87,8 @@ public class UsersController {
 		
 		return "redirect:/";
 	}
-	
+	// -> 로그아웃 인터셉터로 위임할거임 (인터셉터 연습 중이니까!)
+	*/
 	
 	@ResponseBody
 	@GetMapping("/checkEmail")
