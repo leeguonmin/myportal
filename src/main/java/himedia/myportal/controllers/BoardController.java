@@ -52,6 +52,7 @@ public class BoardController {
 	public String writeAction(
 			@ModelAttribute BoardVo vo,
 			HttpSession session) {
+		// 회원인지 아닌지 확인하고, 회원 아니면 튕겨져 나가는 메서드
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
