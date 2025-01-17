@@ -55,8 +55,8 @@ public class BoardController {
 	public String writeAction(
 			@ModelAttribute BoardVo vo,
 			HttpSession session) {
-		/*
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		/*
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
 			logger.debug("로그인 사용자 아님");
