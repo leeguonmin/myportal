@@ -63,10 +63,14 @@
 			<bean class="himedia.myportal.interceptors.MyInterceptor" />
 		</mvc:interceptor>
 		
+		<!-- 중첩시켰을때?음? 뭘 확인하려고 이렇게 쓴거더라 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/board/**" />
+			<bean class="himedia.myportal.interceptors.MyInterceptor2" />
+		</mvc:interceptor>
 	</mvc:interceptors>
 	
-	
-	<!--  -->
+
 	
 	
 </beans>
