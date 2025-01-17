@@ -40,12 +40,14 @@ public class BoardController {
 	public String writeForm(HttpSession session) {
 		// 회원인지 아닌지 확인하고, 회원 아니면 튕겨져 나가는 메서드
 		//	로그인 하지 않은 사용자는 홈페이지로 리다이렉트
+		/*
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
 			logger.debug("로그인 사용자 아님");
 			return "redirect:/";
 		}
+		// 인터셉트 처리할거라서 주석 */
 		return "board/write";
 	}
 	
@@ -53,12 +55,14 @@ public class BoardController {
 	public String writeAction(
 			@ModelAttribute BoardVo vo,
 			HttpSession session) {
+		/*
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
 			logger.debug("로그인 사용자 아님");
 			return "redirect:/";
 		}
+		// 인터셉트 처리할거라서 주석 */
 		
 		vo.setUserNo(authUser.getNo());
 		boardServiceImpl.write(vo);
@@ -80,12 +84,15 @@ public class BoardController {
 		@PathVariable("no") Integer no,
 		Model model, 
 		HttpSession session) {
+		/*
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
 			logger.debug("로그인 사용자 아님");
 			return "redirect:/";
 		}
+		// 인터셉트 처리할거라서 주석 */
+		
 		BoardVo vo = boardServiceImpl.getContent(no);
 		model.addAttribute("vo", vo);
 		
@@ -96,10 +103,12 @@ public class BoardController {
 	public String modify(@ModelAttribute BoardVo updateVo,
 			HttpSession session) {
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		/*
 		if (authUser == null) {
 			System.err.println("로그인 사용자 아님!");
 			return "redirect:/";
 		}
+		// 인터셉트 처리할거라서 주석 */
 		
 		BoardVo vo = boardServiceImpl.getContent(updateVo.getNo());
 		
@@ -120,11 +129,13 @@ public class BoardController {
 	public String deleteAction(@PathVariable("no") Integer no,
 			HttpSession session) {
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		/*
 		if (authUser == null) {
 //			System.err.println("로그인 사용자 아님!");
 			logger.debug("로그인 사용자 아님");
 			return "redirect:/";
 		}
+		// 인터셉트 처리할거라서 주석 */
 		
 		boardServiceImpl.deleteByNoAndUserNo(no, authUser.getNo());
 		
