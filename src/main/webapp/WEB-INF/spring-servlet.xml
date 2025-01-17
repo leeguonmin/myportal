@@ -77,7 +77,10 @@
 			<mvc:exclude-mapping path="/board/" />
 			<mvc:exclude-mapping path="/board"/>
 			<mvc:exclude-mapping path="/board/list"/>
+			
+			<bean class="himedia.myportal.interceptors.AuthInterceptor" />
 		</mvc:interceptor>
+		
 	</mvc:interceptors>
 	
 
