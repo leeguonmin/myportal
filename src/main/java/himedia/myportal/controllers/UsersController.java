@@ -57,7 +57,7 @@ public class UsersController {
 			for (ObjectError e: list) {
 				logger.error("검증 에러:" + e);
 			}
-			// 에러 정보를 모델에 실어서 보내(전송)
+			// 에러 정보(getAllErrors)를 모델에 실어서 보내(전송)
 			model.addAllAttributes(result.getModel());
 			
 			return "users/joinform";
