@@ -40,7 +40,8 @@
                   <c:if test="${errors.hasFieldErrors('name') }">
                      <strong style="color: red">
                         <%--${errors.getFieldError('name').defaultMessage }--%> 
-                        <spring:message code="${errors.getFieldError('name').code[0] }" text = "${errors.getFieldError('name').defaulMessage }"/>
+                        <spring:message code="${errors.getFieldError('name').codes[0] }" 
+                        text="${errors.getFieldError('name').defaultMessage }" />
                         </strong> 
                      <br />
                   </c:if>
@@ -54,7 +55,8 @@
 			<c:if test="${errors.hasFieldErrors('password') }">
 				<strong style="color:red">
 				<!-- ${errors.getFieldError('password').defaultMessage } -->
-				<spring:message code="${errors.getFieldError('password').code[0] }" text = "${errors.getFieldError('password').defaulMessage }"/>
+                <spring:message code="${errors.getFieldError('password').codes[0] }" 
+                text="${errors.getFieldError('password').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
@@ -66,7 +68,8 @@
 			<c:if test="${errors.hasFieldErrors('email') }">
 				<strong style="color:red">
 				<!-- ${errors.getFieldError('email').defaultMessage } -->
-				<spring:message code="${errors.getFieldError('email').code[0] }" text = "${errors.getFieldError('email').defaulMessage }"/>
+                <spring:message code="${errors.getFieldError('email').codes[0] }" 
+                text="${errors.getFieldError('email').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
