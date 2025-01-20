@@ -3,6 +3,8 @@ package himedia.myportal.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/users")
 public class UsersController {
+	private static final Logger logger 
+	= LoggerFactory.getLogger(UsersController.class);
+	
 	@Autowired
 	UserService userServiceImpl;
 	
@@ -41,6 +46,9 @@ public class UsersController {
 	public String joinAction(@ModelAttribute @Valid UserVo userVo, 
 			BindingResult result,		//검증 결과
 			Model model) {
+		logger.debug("회원 가입 액션");
+		logger.debug("회원 가입 정보:" + userVo);
+		
 		boolean success = userServiceImpl.join(userVo);
 		
 		if(!success) {
