@@ -104,7 +104,10 @@
 	<!-- Resource Mapping -->
 	<mvc:resources mapping="/upload-images/**" location="file:c:/uploads/" />
 
-	
+	<!-- messageSource -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"></bean>
+	<property name="basenames" value="messages/message_ko" />
+	<property name="befaultEncoding" value="UTF-8" />
 	
 </beans>
 
