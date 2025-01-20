@@ -12,6 +12,9 @@
 <link type="text/css" 
 	rel="stylesheet" 
 	href="<%= request.getContextPath() %>/css/guestbook.css"/>
+<%-- 	<link type="text/css" 
+	rel="stylesheet" 
+	href="${pageContext.request.contextPath}/css/guestbook.css"/> --%>
 </head>
 </head>
 <body>

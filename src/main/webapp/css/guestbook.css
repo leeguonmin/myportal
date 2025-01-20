@@ -7,7 +7,7 @@
 #guestbook table	{ width:100% }
 
 #guestbook table,	
-#guestbook table td { border:1px solid #333 }
+#guestbook table td { border:9px solid #333 }
 #guestbook table td { padding:5px }
 
 #guestbook ul		{ width:100%; margin-top:20px }
