@@ -1,6 +1,7 @@
 package himedia.myportal.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +50,15 @@ public class UsersController {
 			Model model) {
 		logger.debug("회원 가입 액션");
 		logger.debug("회원 가입 정보:" + userVo);
+		
+		if (result.hasErrors()) {
+			// 만약, 검증이 실패했다면
+			List<ObjectError> list = result.getAllErrors();
+			for (ObjectError e: list) {
+				logger.error("검증 에러:" + e);
+			}
+			return "users/joinform";
+		}
 		
 		boolean success = userServiceImpl.join(userVo);
 		
