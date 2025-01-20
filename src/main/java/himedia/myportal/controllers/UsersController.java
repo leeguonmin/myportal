@@ -1,7 +1,6 @@
 package himedia.myportal.controllers;
 
 import java.util.HashMap;
-
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import himedia.myportal.repositories.vo.UserVo;
 import himedia.myportal.services.UserService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 /*@RestController*/
 @Controller
@@ -36,7 +36,7 @@ public class UsersController {
 	}
 
 	@PostMapping("/join")
-	public String joinAction(@ModelAttribute UserVo userVo) {
+	public String joinAction(@ModelAttribute @Valid UserVo userVo) {
 		boolean success = userServiceImpl.join(userVo);
 		
 		if(!success) {
