@@ -2,11 +2,19 @@ package himedia.myportal.repositories.vo;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.validation.constraints.NotEmpty;
+
 // 마이sql 추가하고 Vo 생성 했음 
 
 public class UserVo {
 	private Integer no;
+	
+	@NotEmpty
+	@Length(min=2, max=8)
 	private String name;
+	
 	private String email;
 	private String password;
 	private String gender;
