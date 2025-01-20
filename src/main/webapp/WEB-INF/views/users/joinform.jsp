@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
 	prefix="c" %>   
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html>
@@ -31,60 +32,78 @@
       
 	<h1>회원 가입</h1>
 	
-	 <form id="join-form" name="registerForm"
-               action="<c:url value="/users/join" />" method="POST">
-               <input type="hidden" name="a" value="join"> <label
-                  for="name">이름</label> <input name="name" type="text"
-                  placeholder="이름을 입력하십시오"><br>
-               <spring:hasBindErrors name="userVo">
+	 <form:form
+	 modelAttribute="userVo"
+	  id="join-form" name="registerForm"
+       <%-- action="<c:url value="/users/join" />" method="POST"> --%>
+       action="${pageContext.servletContext.contextPath }/users/join" method="POST">
+               <input type="hidden" name="a" value="join"> 
+               
+               <label  for="name">이름</label> 
+               <!-- input name="name" type="text" placeholder="이름을 입력하십시오"> -->
+               <form:input path="name" />
+               <br>
+               <form:errors path="name" cssClass="error" />
+               <%-- <spring:hasBindErrors name="userVo">
                   <c:if test="${errors.hasFieldErrors('name') }">
                      <strong style="color: red">
-                        <%--${errors.getFieldError('name').defaultMessage }--%> 
+                        <% --${errors.getFieldError('name').defaultMessage }-- %> 
                         <spring:message code="${errors.getFieldError('name').codes[0] }" 
                         text="${errors.getFieldError('name').defaultMessage }" />
                         </strong> 
                      <br />
                   </c:if>
 
-               </spring:hasBindErrors>
+               </spring:hasBindErrors> --%>
 
 	
+	
 		<label for="password">비밀번호</label>
-		<input name="password" type="password" placeholder="비밀번호를 입력하십시오"><br>
-		<spring:hasBindErrors name="userVo">
+		<!-- <input name="password" type="password" placeholder="비밀번호를 입력하십시오"><br> -->
+		<form:input type = "password" path="password" />
+		<form:errors path="password" cssClass="error" />
+<%-- 		<spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('password') }">
 				<strong style="color:red">
-				<!-- ${errors.getFieldError('password').defaultMessage } -->
-                <spring:message code="${errors.getFieldError('password').codes[0] }" 
+				<form:errors path="password" cssClass="error" />
+				 ${errors.getFieldError('password').defaultMessage }
+                <% -- <spring:message code="${errors.getFieldError('password').codes[0] }" -- %>
                 text="${errors.getFieldError('password').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
-		</spring:hasBindErrors>
+		</spring:hasBindErrors>  --%>
+	
 	
 		<label for="email">이메일</label>
-		<input type="text" name="email" placeholder="이메일을 입력하십시오."><br>
+		<form:input type ="email" path="email" />
+		
+		<form:errors path="email" cssClass="email" />
+<%-- 		<input type="text" name="email" placeholder="이메일을 입력하십시오."><br>
 		<spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('email') }">
 				<strong style="color:red">
-				<!-- ${errors.getFieldError('email').defaultMessage } -->
+				<! -- ${errors.getFieldError('email').defaultMessage } -- >
                 <spring:message code="${errors.getFieldError('email').codes[0] }" 
                 text="${errors.getFieldError('email').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
-		</spring:hasBindErrors>
+		</spring:hasBindErrors> --%>
 		
 		<input id="check-email" type="button" data-target="<c:url value="/users/checkEmail"/>" value="id 중복 체크">
 		<input type="hidden" name="emailCheck" value="n" >
 		<br />
 		
 		<label for="gender">성별</label>
-		<input type="radio" name="gender" value="M" checked>남성</radio>
-		<input type="radio" name="gender" value="F">여성</radio><br>
+		<!-- <input type="radio" name="gender" value="M" checked>남성</radio> -->
+		<!-- <input type="radio" name="gender" value="F">여성</radio><br> -->
+		<form:radiobutton path="gender" value="M" lable="남성" checkec />
+		<form:radiobutton path="gender" value="F" lable="여성" checkec />
+		<br />
 		<input type="submit" value="전송"> 
 	
-	</form>
+	</form:form>
 
 	</div>
 	</div>
